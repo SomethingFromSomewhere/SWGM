@@ -20,6 +20,6 @@ Sourcemod 1.8+
 Latest version of SteamWorks.
 
 # Instalation:
-Put these filed into your sourcemod folder.
+Put these files into your sourcemod folder.
 
 Open group administration panel and copy identifier then set it in swgm_groupid. (Don't forget cfg/sourcemod/swgm.cfg)
