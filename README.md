@@ -1,4 +1,4 @@
-# [CORE] Steam Works Group Manager [SWGM]
+# [CORE] Steam Works Group Manager [aka SWGM]
 
 This plugin provides additional features for other plugin. Working as core.
 
