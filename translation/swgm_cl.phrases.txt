@@ -1,0 +1,8 @@
+"Phrases"
+{
+	"JoinSteam"
+	{
+		"en"		"[SWGM] First join our Steam group!"
+		"ru"		"[SWGM] Сначала вступите в нашу Steam группу!"
+	}
+}
