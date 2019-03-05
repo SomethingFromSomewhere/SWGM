@@ -7,71 +7,74 @@ enum Status
 {
 	UNASSIGNED = 0,
 	NO_GROUP,
+	LEAVER,
 	MEMBER,
-	OFFICER,
-	LEAVER
+	OFFICER
 };
 
 /**
- *	Called when player checked. 
+ *	Вызывается когда клиент был проверен на группу. 
  *
- *	@param iClient			Player index.
- *	@param IsMember			In group ?
- *	@param IsOfficer		Admin/Officer ?
+ *	@param iClient			Индекс клиента.
+ *	@param IsMember			Клиент в группе
+ *	@param IsOfficer		Клиент Админ/Офицер в группе
  *	@noreturn
 */
 forward void SWGM_OnJoinGroup(int iClient, bool IsMember, bool IsOfficer);
 
 /**
- *	Called when player checked again and he leaved the group. 
+ *	Вызывается когда клиент повторно проверяется и он вышел из группы. 
  *
- *	@param iClient			Player index.
+ *	@param iClient			Индекс клиента.
  *	@noreturn
 */
 forward void SWGM_OnLeaveGroup(int iClient);
 
+
 /**
- *  Check is player in group.
+ *  Проверяет клиента на наличие в группе.
  *
- *  @param iClient          Player index.
- *  @return                 true if in group, else false.
- *  @error                  Invalid client index, client not in game, or client bot.
+ *  @param iClient          Индекс клиента.
+ *  @return                 true, если в группе, иначе false.
+ *  @error                  Клиент не на сервере, является ботом или его индекс превышает допустимую границу.
  */
 native bool SWGM_InGroup(int iClient);
 
 /**
- *  Check is player in group and officer.
+ *  Проверяет на Администратора или Офицера группы.
  *
- *  @param iClient          Player index.
- *  @return                 true if in group, else false.
- *  @error                  Invalid client index, client not in game, or client bot.
+ *  @param iClient          Индекс клиента.
+ *  @return                 true, если в группе, иначе false.
+ *  @error                  Клиент не на сервере, является ботом или его индекс превышает допустимую границу.
  */
 native bool SWGM_InGroupOfficer(int iClient);
 
 /**
- *  Return player status.
+ *  Возвращает статус клиента.
  *
- *  @param iClient          Player index.
- *  @return                 Status.
- *  @error                  Invalid client index, client not in game, or client bot.
+ *  @param iClient          Индекс клиента.
+ *  @return                 Статус.
+ *  @error                  Клиент не на сервере, является ботом или его индекс превышает допустимую границу.
  */
 native Status SWGM_GetPlayerStatus(int iClient);
 
 /**
- *  Check specific player.
+ *  Запускает проверку клиента на состояние в группе.
  *
- *  @param iClient          Player index.
- *  @error                  Invalid client index, client not in game, or client bot.
+ *  @param iClient			Индекс клиента.
+ *  @error                  Клиент не на сервере, является ботом или его индекс превышает допустимую границу.
  *  @noreturn
  */
 native void SWGM_CheckPlayer(int iClient);
 
 /**
- *  Check all players.
+ *  Проверяет загружен ли клиент.
  *
- *  @noreturn
+ *  @param iClient          Индекс клиента.
+ *  @return                 true, если загружен, иначе fasle;
+ *  @error                 	Индекс превышает допустимую границу.
  */
-native void SWGM_CheckPlayers();
+native bool SWGM_IsPlayerValidated(int iClient);
 
 public SharedPlugin __pl_SWGM= 
 {
@@ -91,6 +94,6 @@ public __pl_SWGM_SetNTVOptional()
 	MarkNativeAsOptional("SWGM_InGroupOfficer");
 	MarkNativeAsOptional("SWGM_GetPlayerStatus");
 	MarkNativeAsOptional("SWGM_CheckPlayer");
-	MarkNativeAsOptional("SWGM_CheckPlayers");
+	MarkNativeAsOptional("SWGM_IsPlayerValidated");
 }
 #endif

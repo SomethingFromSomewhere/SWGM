@@ -1,14 +1,14 @@
+#include <swgm>
+
 #pragma semicolon 1
 #pragma newdecls required
-
-#include <swgm>
 
 public Plugin myinfo =
 {
 	name        = 	"[SWGM] Command Listener",
 	author      = 	"Someone",
-	version     = 	"1.1",
-	url         = 	"http://hlmod.ru"
+	version     = 	"1.2",
+	url         = 	"http://hlmod.ru | https://discord.gg/UfD3dSa"
 };
 
 public void OnAllPluginsLoaded()
@@ -25,7 +25,7 @@ public Action CMD_RELOAD(int iClient, int iArgs)
 
 public Action Check(int iClient, const char[] sCommand, int iArgc)
 {
-	if(iClient != 0 && !SWGM_InGroup(iClient))
+	if(iClient != 0 && SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
 	{
 		PrintToChat(iClient, "%t", "JoinSteam");
 		return Plugin_Stop;
@@ -39,7 +39,7 @@ void LoadConfig()
 	
 	char sBuffer[256];
 	BuildPath(Path_SM, sBuffer, sizeof(sBuffer), "configs/swgm/command_listener.ini");
-	if (!FileToKeyValues(Kv, sBuffer)) SetFailState("Missing config file %s", sBuffer);
+	if (!FileToKeyValues(Kv, sBuffer)) SetFailState("Файл конфигурации не найден %s", sBuffer);
 	
 	if (Kv.GotoFirstSubKey())
 	{
@@ -47,7 +47,7 @@ void LoadConfig()
 		{
 			if (Kv.GetSectionName(sBuffer, sizeof(sBuffer)))
 			{
-				AddCommandListener(Check, sBuffer);
+				AddCommandListener(Check, sBuffer); 
 			}
 		} 
 		while (Kv.GotoNextKey());

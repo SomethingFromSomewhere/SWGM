@@ -1,0 +1,9 @@
+"Phrases"
+{
+	"Credits_Give"
+	{
+		"#format"		"{1:i}"
+		"en"			"[Shop] You got {1} credits because you join our Steam group."
+		"ru"			"[Shop] Вы получили {1} кредитов, потому что состоите в нашей Steam группе."
+	}
+}

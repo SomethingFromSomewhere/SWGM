@@ -7,14 +7,12 @@ public Plugin myinfo =
 {
 	name 		= 		"[SWGM] Admin",
 	author 		= 		"Someone",
-	version	 	= 		"1.0",
+	version	 	= 		"1.1",
 	url 		= 		"http://hlmod.ru"
 }
 
-int g_iFlags;
-
-bool g_bThis[MAXPLAYERS+1],
-	g_bMode;
+int g_iFlags, g_iPlayerFlags[MAXPLAYERS+1];
+bool g_bMode;
 	
 char g_sGroup[64];
 
@@ -56,35 +54,32 @@ public void ChangeCvar_Group(ConVar convar, const char[] oldValue, const char[] 
 
 public void SWGM_OnJoinGroup(int iClient, bool IsOfficer)
 {
-	if(!IsFakeClient(iClient) && GetUserAdmin(iClient) == INVALID_ADMIN_ID)
+	if(!IsFakeClient(iClient))
 	{
-		SetAdmin(iClient);
+		if(g_bMode)
+		{
+			g_iPlayerFlags[iClient] = GetUserFlagBits(iClient);
+			SetUserFlagBits(iClient, g_iPlayerFlags[iClient] & g_iFlags);
+		}
+		else
+		{
+			AdminId id = CreateAdmin();
+			id.InheritGroup(FindAdmGroup(g_sGroup));
+			SetUserAdmin(iClient, id, true);
+		}
 	}
 }
 
 public void SWGM_OnLeaveGroup(int iClient)
 {
-	if(GetUserAdmin(iClient) != INVALID_ADMIN_ID && g_bThis[iClient])
+	if(g_bMode)	SetUserFlagBits(iClient, g_iPlayerFlags[iClient]);
+	else
 	{
 		AdminId id = GetUserAdmin(iClient);
 		RemoveAdmin(id);
-		g_bThis[iClient] = false;
 	}
 }
 
-void SetAdmin(int iClient)
-{
-	AdminId id = CreateAdmin();
-	if(g_bMode)
-	{
-		SetUserFlagBits(iClient, g_iFlags);
-	}
-	else
-	{
-		id.InheritGroup(FindAdmGroup(g_sGroup));
-		SetUserAdmin(iClient, id, true);
-	}
-	g_bThis[iClient] = true;
-}
+
 
 
