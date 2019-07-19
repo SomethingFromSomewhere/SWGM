@@ -3,7 +3,8 @@
 	"Credits_Give"
 	{
 		"#format"		"{1:i}"
-		"en"			"[Shop] You got {1} credits because you join our Steam group."
-		"ru"			"[Shop] Вы получили {1} кредитов, потому что состоите в нашей Steam группе."
+		"en"			"{darkred}[SHOP] {green}You got {darkred}{1} credits {green}because you join our Steam Group."
+		"pt"			"{darkred}[SHOP] {green}Você ganhou {darkred}{1} créditos {green}porque entrou no nosso Grupo Steam."
+		"ru"			"{darkred}[SHOP] {green}Вы получили {darkred}{1} кредитов {green}потому что состоите в нашей Steam группе."
 	}
 }

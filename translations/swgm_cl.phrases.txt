@@ -2,9 +2,10 @@
 {
 	"JoinSteam"
 	{
-		"en"		"[SWGM] First join our Steam group!"
-		"ru"		"[SWGM] Сначала вступите в нашу Steam группу!"
-		"fr"		"[SWGM] En premier, rejoignez notre groupe Steam!"
-		"hu"		"[SWGM] Először csatlakozz a Steam-es csoportunkhoz!"
+		"en"		"{darkred}[SWGM] {green}First join our Steam Group!"
+		"pt"		"{darkred}[SWGM] {green}Primeiro junte-se ao nosso Grupo Steam!"
+		"ru"		"{darkred}[SWGM] {green}Сначала вступите в нашу Steam группу!"
+		"fr"		"{darkred}[SWGM] {green}En premier, rejoignez notre Groupe Steam!"
+		"hu"		"{darkred}[SWGM] {green}Először csatlakozz a Steam-es csoportunkhoz!"
 	}
 }

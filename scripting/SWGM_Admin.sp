@@ -1,14 +1,14 @@
+#include <swgm>
+
 #pragma semicolon 1
 #pragma newdecls required
 
-#include <swgm>
-
 public Plugin myinfo = 
 {
-	name 		= 		"[SWGM] Admin",
-	author 		= 		"Someone",
-	version	 	= 		"1.1",
-	url 		= 		"http://hlmod.ru"
+	name 	= 	"[SWGM] Admin",
+	author 	= 	"Someone",
+	version	= 	"1.1",
+	url 	= 	"http://hlmod.ru | https://discord.gg/UfD3dSa"
 }
 
 int g_iFlags, g_iPlayerFlags[MAXPLAYERS+1];
@@ -25,14 +25,14 @@ public void OnPluginStart()
 	
 	char sBuffer[22];
 	
-	(CVAR = CreateConVar("sm_swgm_admin_flags", "a", "Admin flags.")).AddChangeHook(ChangeCvar_Flags);
+	(CVAR = CreateConVar("sm_swgm_admin_flags", "a", "Admin Flags.")).AddChangeHook(ChangeCvar_Flags);
 	CVAR.GetString(sBuffer, sizeof(sBuffer));
 	g_iFlags = ReadFlagString(sBuffer);
 	
-	(CVAR = CreateConVar("sm_swgm_admin_group", "Steam", "Admin group.")).AddChangeHook(ChangeCvar_Group);
+	(CVAR = CreateConVar("sm_swgm_admin_group", "Steam", "Admin Group.")).AddChangeHook(ChangeCvar_Group);
 	CVAR.GetString(g_sGroup, sizeof(g_sGroup));
 	
-	AutoExecConfig(true, "swgm_admin");
+	AutoExecConfig(true, "swgm_admin", "sourcemod/swgm");
 }
 
 public void ChangeCvar_Mode(ConVar convar, const char[] oldValue, const char[] newValue)
@@ -79,7 +79,3 @@ public void SWGM_OnLeaveGroup(int iClient)
 		RemoveAdmin(id);
 	}
 }
-
-
-
-

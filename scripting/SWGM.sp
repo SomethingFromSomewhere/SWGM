@@ -1,5 +1,6 @@
 #include <steamworks>
 #include <swgm>
+#include <multicolors>
 
 #pragma semicolon 1
 #pragma newdecls required
@@ -45,7 +46,7 @@ public void OnPluginStart()
 	
 	RegAdminCmd("sm_swgm_check", 	CMD_Check, 	ADMFLAG_ROOT);
 
-	AutoExecConfig(true, "swgm", "sourcemod/swgm");
+	AutoExecConfig(true, "swgm", "sourcemod");
 }
 
 public void OnGroupChange(ConVar convar, const char[] oldValue, const char[] newValue)
@@ -81,7 +82,7 @@ public void OnConfigsExecuted()
 public Action CMD_Check(int iClient, int args)
 {
 	Check();
-	ReplyToCommand(iClient, "[SWGM] All players have been checked.");
+	CReplyToCommand(iClient, "{darkred}[SWGM] {green}All players have been checked.");
 	return Plugin_Handled;
 }
 

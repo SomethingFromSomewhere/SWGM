@@ -6,11 +6,11 @@
 
 public Plugin myinfo =
 {
-	name 			= 		"[SWGM] VIP",
-	author 			= 		"Someone",
-	description 	= 		"Выдача VIP-статуса для игроков, состоящих в Steam группе.",
-	version 		= 		"1.8",
-	url 			= 		"http://hlmod.ru | https://discord.gg/UfD3dSa"
+	name 		= 	"[SWGM] VIP",
+	author 		= 	"Someone",
+	description = 	"Выдача VIP-статуса для игроков, состоящих в Steam группе.",
+	version 	= 	"1.8",
+	url 		= 	"http://hlmod.ru | https://discord.gg/UfD3dSa"
 };
 
 ConVar CVAR;

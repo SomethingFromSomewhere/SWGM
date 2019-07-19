@@ -1,5 +1,9 @@
 #include <swgm>
 #include <shop>
+#include <multicolors>
+
+#pragma semicolon 1
+#pragma newdecls required
 
 public Plugin myinfo =
 {
@@ -7,11 +11,8 @@ public Plugin myinfo =
 	author = "Someone",
 	description = "Бонусы для игроков, вступивших в Steam группу.",
 	version = "1.3",
-	url = "http://hlmod.ru"
+	url = "http://hlmod.ru | https://discord.gg/UfD3dSa"
 };
-
-#pragma semicolon 1
-#pragma newdecls required
 
 ConVar CVAR;
 
@@ -97,7 +98,7 @@ public Action Timer_Give(Handle hTimer, int iClient)
 			return Plugin_Continue;
 		}
 		Shop_GiveClientCredits(iClient, g_iCredits, IGNORE_FORWARD_HOOK);
-		PrintToChat(iClient, "%t", "Credits_Give", g_iCredits);
+		CPrintToChat(iClient, "%t", "Credits_Give", g_iCredits);
 	}
 	return Plugin_Continue;
 }

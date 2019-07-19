@@ -1,14 +1,15 @@
 #include <swgm>
+#include <multicolors>
 
 #pragma semicolon 1
 #pragma newdecls required
 
 public Plugin myinfo =
 {
-	name        = 	"[SWGM] Command Listener",
-	author      = 	"Someone",
-	version     = 	"1.2",
-	url         = 	"http://hlmod.ru | https://discord.gg/UfD3dSa"
+	name    =	"[SWGM] Command Listener",
+	author  = 	"Someone",
+	version	= 	"1.2",
+	url     = 	"http://hlmod.ru | https://discord.gg/UfD3dSa"
 };
 
 public void OnAllPluginsLoaded()
@@ -27,7 +28,7 @@ public Action Check(int iClient, const char[] sCommand, int iArgc)
 {
 	if(iClient != 0 && SWGM_IsPlayerValidated(iClient) && !SWGM_InGroup(iClient))
 	{
-		PrintToChat(iClient, "%t", "JoinSteam");
+		CPrintToChat(iClient, "%t", "JoinSteam");
 		return Plugin_Stop;
 	}
 	return Plugin_Continue;
@@ -54,4 +55,3 @@ void LoadConfig()
 	}
 	delete Kv;
 }
-
