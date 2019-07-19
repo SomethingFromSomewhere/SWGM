@@ -11,8 +11,8 @@ This plugin provides additional features for others plugins. Working as core.
 `sm_swgm_timer` — interval beetwen checks;
 
 # Requirements
-[*] Sourcemod 1.8+
-[*] Latest version of [SteamWorks](http://users.alliedmods.net/~kyles/builds/SteamWorks/)
+[*]Sourcemod 1.8+
+[*]Latest version of [SteamWorks](http://users.alliedmods.net/~kyles/builds/SteamWorks/)
 
 # Instalation
 Put these files into your sourcemod folder.
