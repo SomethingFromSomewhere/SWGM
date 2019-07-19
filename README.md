@@ -8,6 +8,7 @@ This plugin provides additional features for others plugins. Working as core.
 
 # CVARs
 `sm_swgm_groupid` - identifier of your steam group;
+
 `sm_swgm_timer` - interval beetwen checks;
 
 # Requirements
