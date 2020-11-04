@@ -45,7 +45,7 @@ public void OnPluginStart()
 	
 	RegAdminCmd("sm_swgm_check", 	CMD_Check, 	ADMFLAG_ROOT);
 
-	AutoExecConfig(true, "swgm", "sourcemod/swgm");
+	AutoExecConfig(true, "swgm");
 }
 
 public void OnGroupChange(ConVar convar, const char[] oldValue, const char[] newValue)

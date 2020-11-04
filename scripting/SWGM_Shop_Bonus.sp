@@ -41,7 +41,7 @@ public void OnPluginStart()
 	g_fDisc = CVAR.FloatValue;
 	
 	LoadTranslations("swgm_shop_bonus.phrases.txt");
-	AutoExecConfig(true, "swgm_shop_bonus", "sourcemod/swgm");
+	AutoExecConfig(true, "swgm_shop_bonus");
 }
 
 public void OnTypeChange(ConVar convar, const char[] oldValue, const char[] newValue)

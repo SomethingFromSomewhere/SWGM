@@ -25,7 +25,7 @@ public void OnPluginStart()
 	
 	
 	LoadTranslations("vip_modules.phrases");
-	AutoExecConfig(true, "swgm_vip", "sourcemod/swgm");
+	AutoExecConfig(true, "swgm_vip");
 }
 
 public void ChangeCvar_Group(ConVar convar, const char[] oldValue, const char[] newValue)
